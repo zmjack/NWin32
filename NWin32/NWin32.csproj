@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36E74D56-2A70-43F7-B624-5D7D5E19EC6D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NWin32</RootNamespace>
+    <AssemblyName>NWin32</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <LangVersion>default</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AutoCharPtr.cs" />
+    <Compile Include="AutoIntPtr.cs" />
+    <Compile Include="~NativeConstants - Addition\NativeConstants - E.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - A.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - B.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - C.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - D.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - E.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - F.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - G.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - H.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - I.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - J.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - K.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - L.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - M.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - N.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - O.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - P.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - Q.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - R.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - S.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - T.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - U.cs" />
+    <Compile Include="~NativeConstants\NativeConstants -- Unknow.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - V.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - W.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - X.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - _.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - Y.cs" />
+    <Compile Include="~NativeConstants\NativeConstants - Z.cs" />
+    <Compile Include="MemoryAccessor.cs" />
+    <Compile Include="~NativeMacros\NativeMacros.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - A.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - B.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - C.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - D.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - E.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - F.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - G.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - H.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - I.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - J.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - K.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - L.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - M.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - N.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - O.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - P.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - Q.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - R.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - S.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - T.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - U.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - V.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - W.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - X.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - _.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - Y.cs" />
+    <Compile Include="~NativeMethods\NativeMethods - Z.cs" />
+    <Compile Include="NativeTypes\NativeTypes - C.cs" />
+    <Compile Include="NativeTypes\NativeTypes - B.cs" />
+    <Compile Include="NativeTypes\NativeTypes - A.cs" />
+    <Compile Include="NativeTypes\NativeTypes - D.cs" />
+    <Compile Include="NativeTypes\NativeTypes - E.cs" />
+    <Compile Include="NativeTypes\NativeTypes - F.cs" />
+    <Compile Include="NativeTypes\NativeTypes - G.cs" />
+    <Compile Include="NativeTypes\NativeTypes - H.cs" />
+    <Compile Include="NativeTypes\NativeTypes - I.cs" />
+    <Compile Include="NativeTypes\NativeTypes - J.cs" />
+    <Compile Include="NativeTypes\NativeTypes - K.cs" />
+    <Compile Include="NativeTypes\NativeTypes - L.cs" />
+    <Compile Include="NativeTypes\NativeTypes - M.cs" />
+    <Compile Include="NativeTypes\NativeTypes - N.cs" />
+    <Compile Include="NativeTypes\NativeTypes - O.cs" />
+    <Compile Include="NativeTypes\NativeTypes - P.cs" />
+    <Compile Include="NativeTypes\NativeTypes - Q.cs" />
+    <Compile Include="NativeTypes\NativeTypes - R.cs" />
+    <Compile Include="NativeTypes\NativeTypes - S.cs" />
+    <Compile Include="NativeTypes\NativeTypes - T.cs" />
+    <Compile Include="NativeTypes\NativeTypes - U.cs" />
+    <Compile Include="NativeTypes\NativeTypes - V.cs" />
+    <Compile Include="NativeTypes\NativeTypes - W.cs" />
+    <Compile Include="NativeTypes\NativeTypes - X.cs" />
+    <Compile Include="NativeTypes\NativeTypes - Y.cs" />
+    <Compile Include="NativeTypes\NativeTypes - _.cs" />
+    <Compile Include="NativeTypes\NativeTypes - Z.cs" />
+    <Compile Include="NativeTypes\NativeTypes -- Unkown.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
