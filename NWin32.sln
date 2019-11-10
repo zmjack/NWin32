@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWin32", "NWin32\NWin32.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C9D6D19-568F-4808-B73F-11C1E17B33F7}"
 	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
 		NWin32\NWin32.nuspec = NWin32\NWin32.nuspec
 	EndProjectSection
 EndProject
