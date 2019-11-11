@@ -39,9 +39,9 @@ namespace NWin32
             if (!IsSupportedType) throw new TypeLoadException($"The type {TypeFullName} is not supported.");
 
             if (TypeFullName == "System.Byte[]") Length = length;
-            else Length = (int)Marshal.SizeOf(typeof(T));
+            else Length = Marshal.SizeOf(typeof(T));
 
-            Ptr = Marshal.AllocHGlobal((int)Length);
+            Ptr = Marshal.AllocHGlobal(Length);
         }
 
         public void Dispose() => Marshal.FreeHGlobal(Ptr);
