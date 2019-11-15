@@ -1,6 +1,4 @@
-﻿using NWin32.NativeTypes;
-
-namespace NWin32
+﻿namespace NWin32
 {
     public partial class NativeConstants
     {

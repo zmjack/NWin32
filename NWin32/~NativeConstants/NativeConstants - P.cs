@@ -3419,7 +3419,7 @@ namespace NWin32
         /// PostAppMessageW -> "(idThread,wMsg,wParam,lParam) PostThreadMessageW((DWORD)idThread, wMsg, wParam, lParam)"
         public const string PostAppMessageW = "(idThread,wMsg,wParam,lParam) PostThreadMessageW((DWORD)idThread, wMsg, wParam, l" +
             "Param)";
-        
+
     }
-    
+
 }

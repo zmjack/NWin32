@@ -36,8 +36,11 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DawnxLite, Version=1.9.29.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\DawnxLite.1.9.29\lib\netstandard2.0\DawnxLite.dll</HintPath>
+    <Reference Include="NMarshal, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMarshal.0.0.1\lib\net35\NMarshal.dll</HintPath>
+    </Reference>
+    <Reference Include="NStandard, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NStandard.0.0.1\lib\netstandard2.0\NStandard.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />

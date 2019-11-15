@@ -1,5 +1,3 @@
-﻿using NWin32.NativeTypes;
-
-namespace NWin32
+﻿namespace NWin32
 {
 }

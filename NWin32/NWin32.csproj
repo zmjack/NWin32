@@ -43,13 +43,14 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NMarshal, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMarshal.0.0.1\lib\net35\NMarshal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoCharPtr.cs" />
-    <Compile Include="AutoIntPtr.cs" />
     <Compile Include="~NativeConstants - Addition\NativeConstants - E.cs" />
     <Compile Include="~NativeConstants\NativeConstants - A.cs" />
     <Compile Include="~NativeConstants\NativeConstants - B.cs" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

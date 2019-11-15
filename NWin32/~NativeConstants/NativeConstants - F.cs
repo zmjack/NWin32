@@ -1,6 +1,4 @@
-﻿using NWin32.NativeTypes;
-
-namespace NWin32
+﻿namespace NWin32
 {
     public partial class NativeConstants
     {
@@ -1383,7 +1381,7 @@ namespace NWin32
 
         /// FACILITY_AAF -> 18
         public const int FACILITY_AAF = 18;
-        
+
         /// far -> 
         /// Error generating expression: 值不能为空。
         ///参数名: node

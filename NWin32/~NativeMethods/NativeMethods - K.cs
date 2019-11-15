@@ -1,5 +1,4 @@
-﻿using NWin32.NativeTypes;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 
 namespace NWin32

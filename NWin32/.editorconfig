@@ -1,4 +1,7 @@
 ﻿[*.cs]
 
 # CA1712: Do not prefix enum values with type name
-dotnet_diagnostic.CA1712.severity = suggestion
+dotnet_diagnostic.CA1712.severity = silent
+
+# CA1401: P/Invokes should not be visible
+dotnet_diagnostic.CA1401.severity = silent

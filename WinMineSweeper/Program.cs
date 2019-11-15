@@ -1,8 +1,4 @@
-﻿using NWin32;
-using System;
-using System.Diagnostics;
-using System.Linq;
-using static NWin32.NativeMethods;
+﻿using System;
 
 namespace WinMineSweeper
 {

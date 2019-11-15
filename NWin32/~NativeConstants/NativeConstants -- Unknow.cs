@@ -1,6 +1,4 @@
-﻿using NWin32.NativeTypes;
-
-namespace NWin32
+﻿namespace NWin32
 {
     public partial class NativeConstants
     {
@@ -45,7 +43,7 @@ namespace NWin32
         /// VIEW_E_DRAW -> _HRESULT_TYPEDEF_(0x80040140L)
         /// Error generating expression: Error generating function call.  Operation not implemented
         public const string VIEW_E_DRAW = "_HRESULT_TYPEDEF_(0x80040140L)";
-        
+
         /// STATUS_WAIT_0 -> ((DWORD   )0x00000000L)
         /// Error generating expression: Cast expressions are not supported in constants
         public const string STATUS_WAIT_0 = "((DWORD   )0x00000000L)";
@@ -73,11 +71,11 @@ namespace NWin32
         /// STATUS_NONCONTINUABLE_EXCEPTION -> ((DWORD   )0xC0000025L)
         /// Error generating expression: Cast expressions are not supported in constants
         public const string STATUS_NONCONTINUABLE_EXCEPTION = "((DWORD   )0xC0000025L)";
-        
+
         /// STATUS_IN_PAGE_ERROR -> ((DWORD   )0xC0000006L)
         /// Error generating expression: Cast expressions are not supported in constants
         public const string STATUS_IN_PAGE_ERROR = "((DWORD   )0xC0000006L)";
-        
+
         /// STATUS_INVALID_HANDLE -> ((DWORD   )0xC0000008L)
         /// Error generating expression: Cast expressions are not supported in constants
         public const string STATUS_INVALID_HANDLE = "((DWORD   )0xC0000008L)";

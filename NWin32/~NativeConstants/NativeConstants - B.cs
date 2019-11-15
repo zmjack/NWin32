@@ -509,5 +509,5 @@ namespace NWin32
         /// BACKGROUND_BLUE -> 0x0010
         public const int BACKGROUND_BLUE = 16;
     }
-    
+
 }

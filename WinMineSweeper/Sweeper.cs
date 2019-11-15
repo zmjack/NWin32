@@ -2,9 +2,9 @@
 using System;
 using System.Diagnostics;
 using System.Threading;
-using static NWin32.NativeMethods;
 using static NWin32.NativeConstants;
 using static NWin32.NativeMacros;
+using static NWin32.NativeMethods;
 
 namespace WinMineSweeper
 {

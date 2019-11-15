@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
 		NWin32\NWin32.nuspec = NWin32\NWin32.nuspec
+		NWin32\NWin32Pack.cmd = NWin32\NWin32Pack.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinMineSweeper", "WinMineSweeper\WinMineSweeper.csproj", "{8E915AE6-9A05-4D18-B688-9BFC180E115C}"
