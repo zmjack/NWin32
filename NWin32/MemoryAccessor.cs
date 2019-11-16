@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NMarshal;
+using System;
 using System.Linq;
 using static NWin32.NativeConstants;
 using static NWin32.NativeMethods;

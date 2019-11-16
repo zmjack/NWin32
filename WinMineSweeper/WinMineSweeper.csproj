@@ -36,8 +36,8 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NMarshal, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NMarshal.0.0.1\lib\net35\NMarshal.dll</HintPath>
+    <Reference Include="NMarshal, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NMarshal.0.0.2\lib\net35\NMarshal.dll</HintPath>
     </Reference>
     <Reference Include="NStandard, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NStandard.0.0.1\lib\netstandard2.0\NStandard.dll</HintPath>
@@ -62,15 +62,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NWin32\NWin32.csproj">
-      <Project>{36e74d56-2a70-43f7-b624-5d7d5e19ec6d}</Project>
-      <Name>NWin32</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="winmine.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NWin32\NWin32.csproj">
+      <Project>{fb382c44-9e93-47f7-a5a3-62bad4ccf73a}</Project>
+      <Name>NWin32</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
