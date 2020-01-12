@@ -5,14 +5,13 @@ VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5C9D6D19-568F-4808-B73F-11C1E17B33F7}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		LICENSE.md = LICENSE.md
-		NWin32\NWin32.nuspec = NWin32\NWin32.nuspec
-		NWin32\NWin32Pack.cmd = NWin32\NWin32Pack.cmd
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinMineSweeper", "WinMineSweeper\WinMineSweeper.csproj", "{8E915AE6-9A05-4D18-B688-9BFC180E115C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NWin32", "NWin32\NWin32.csproj", "{FB382C44-9E93-47F7-A5A3-62BAD4CCF73A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NWin32", "NWin32\NWin32.csproj", "{FB382C44-9E93-47F7-A5A3-62BAD4CCF73A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

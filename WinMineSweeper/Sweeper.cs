@@ -15,11 +15,11 @@ namespace WinMineSweeper
         private IntPtr HWnd;
 
         private const int WBASE = 0x01000000;
-        private int AddrRemaining = WBASE + 0x5194;
-        private int AddrWidth = WBASE + 0x5334;
-        private int AddrHeight = WBASE + 0x5338;
-        private int AddrTime = WBASE + 0x579C;
-        private int AddrMine = WBASE + 0x5340;
+        private readonly int AddrRemaining = WBASE + 0x5194;
+        private readonly int AddrWidth = WBASE + 0x5334;
+        private readonly int AddrHeight = WBASE + 0x5338;
+        private readonly int AddrTime = WBASE + 0x579C;
+        private readonly int AddrMine = WBASE + 0x5340;
         private int Remaining, Width, Height, Time;
         private byte[] Mines = new byte[832];
 
