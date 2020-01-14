@@ -38,7 +38,12 @@ namespace NWin32
         public unsafe void Write<TWrite>(void* lpBaseAddress, TWrite value) => Write(new IntPtr(lpBaseAddress), value);
         public void Write<TWrite>(IntPtr lpBaseAddress, TWrite value)
         {
-            using (var buffer = new AutoIntPtr<TWrite>())
+            AutoIntPtr<TWrite> buffer;
+
+            if (typeof(TWrite).IsArray)
+                buffer = new AutoIntPtr<TWrite>((value as Array).Length);
+            else buffer = new AutoIntPtr<TWrite>();
+
             using (var numberOfBytesWritten = new AutoIntPtr<int>())
             {
                 buffer.Value = value;
