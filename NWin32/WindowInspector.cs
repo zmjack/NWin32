@@ -8,17 +8,25 @@ namespace NWin32
 {
     public class WindowInspector
     {
+        private WindowInspector WrapWindowInspector(IntPtr hWnd) => hWnd == IntPtr.Zero ? null : new WindowInspector(hWnd);
+
         public IntPtr Handle { get; protected set; }
-        public string Caption => Handle == IntPtr.Zero ? default : GetCaption();
-        public string ClassName => Handle == IntPtr.Zero ? default : GetClassName();
-        public tagRECT Rectangle => Handle == IntPtr.Zero ? default : GetRectangle();
-        public uint ProcessId => Handle == IntPtr.Zero ? default : GetProcessId();
+
+        public string Caption => GetCaption();
+        public string ClassName => GetClassName();
+        public tagRECT Rectangle => GetRectangle();
+        public int Width => Rectangle.For(x => x.right - x.left);
+        public int Height => Rectangle.For(x => x.bottom - x.top);
+        public uint ProcessId => GetProcessId();
         public WindowInspector FirstWindow => NativeMethods.GetWindow(Handle, 0).For(WrapWindowInspector);
         public WindowInspector LastWindow => NativeMethods.GetWindow(Handle, 1).For(WrapWindowInspector);
         public WindowInspector NextWindow => NativeMethods.GetWindow(Handle, 2).For(WrapWindowInspector);
         public WindowInspector PreviousWindow => NativeMethods.GetWindow(Handle, 3).For(WrapWindowInspector);
         public WindowInspector OwnerWindow => NativeMethods.GetWindow(Handle, 4).For(WrapWindowInspector);
         public WindowInspector FirstChildWindow => NativeMethods.GetWindow(Handle, 5).For(WrapWindowInspector);
+        public bool IsIconic => NativeMethods.IsIconic(Handle);
+        public bool IsForeground => NativeMethods.GetForegroundWindow() == Handle;
+
         public WindowInspector[] GetChildWindows()
         {
             var list = new List<WindowInspector>();
@@ -27,7 +35,7 @@ namespace NWin32
             return list.ToArray();
         }
 
-        private WindowInspector WrapWindowInspector(IntPtr hWnd) => hWnd == IntPtr.Zero ? null : new WindowInspector(hWnd);
+        public void Force() => NativeMethods.SetForegroundWindow(Handle);
 
         public WindowInspector(IntPtr windowHandle)
         {
