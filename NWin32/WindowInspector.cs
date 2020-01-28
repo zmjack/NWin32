@@ -2,6 +2,7 @@
 using NStandard;
 using NWin32.NativeTypes;
 using System;
+using System.Collections.Generic;
 
 namespace NWin32
 {
@@ -18,6 +19,13 @@ namespace NWin32
         public WindowInspector PreviousWindow => NativeMethods.GetWindow(Handle, 3).For(WrapWindowInspector);
         public WindowInspector OwnerWindow => NativeMethods.GetWindow(Handle, 4).For(WrapWindowInspector);
         public WindowInspector FirstChildWindow => NativeMethods.GetWindow(Handle, 5).For(WrapWindowInspector);
+        public WindowInspector[] GetChildWindows()
+        {
+            var list = new List<WindowInspector>();
+            for (var window = FirstChildWindow; window != null; window = window.NextWindow)
+                list.Add(window);
+            return list.ToArray();
+        }
 
         private WindowInspector WrapWindowInspector(IntPtr hWnd) => hWnd == IntPtr.Zero ? null : new WindowInspector(hWnd);
 
@@ -28,24 +36,24 @@ namespace NWin32
             Handle = windowHandle;
         }
 
-        public string GetCaption()
+        protected string GetCaption()
         {
             var autoWindowText = new AutoCharPtr(255);
             NativeMethods.GetWindowTextW(Handle, autoWindowText, autoWindowText.Length);
             return autoWindowText.Value;
         }
-        public string GetClassName()
+        protected string GetClassName()
         {
             var autoWindowText = new AutoCharPtr(255);
             NativeMethods.GetClassNameW(Handle, autoWindowText, autoWindowText.Length);
             return autoWindowText.Value;
         }
-        public tagRECT GetRectangle()
+        protected tagRECT GetRectangle()
         {
             NativeMethods.GetWindowRect(Handle, out var rectangle);
             return rectangle;
         }
-        public uint GetProcessId()
+        protected uint GetProcessId()
         {
             var autoPid = new AutoIntPtr<uint>();
             NativeMethods.GetWindowThreadProcessId(Handle, autoPid);
