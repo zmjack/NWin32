@@ -35,7 +35,7 @@ namespace NWin32
             return list.ToArray();
         }
 
-        public void Force() => NativeMethods.SetForegroundWindow(Handle);
+        public void Focus() => NativeMethods.SetForegroundWindow(Handle);
 
         public WindowInspector(IntPtr windowHandle)
         {
