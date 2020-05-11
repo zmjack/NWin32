@@ -1,4 +1,4 @@
-﻿using NMarshal;
+﻿using Native;
 using System;
 using System.Linq;
 using static NWin32.NativeConstants;
@@ -10,6 +10,7 @@ namespace NWin32
     {
         public int TargetPointerLength { get; private set; }
         public IntPtr HProcess { get; private set; }
+        public PointerEvaluator PointerEvaluator;
 
         public MemoryAccessor(uint pid, int targetPointerLength = 4, uint dwDesiredAccess = PROCESS_ALL_ACCESS | PROCESS_VM_READ | PROCESS_VM_WRITE)
         {
@@ -17,6 +18,7 @@ namespace NWin32
             {
                 HProcess = OpenProcess(dwDesiredAccess, false, pid);
                 TargetPointerLength = targetPointerLength;
+                PointerEvaluator = new PointerEvaluator(this);
             }
             else throw new ArgumentException("The `TargetPointerLength` must be 4(x86) or 8(x64).");
         }
@@ -59,7 +61,15 @@ namespace NWin32
         public IntPtr Ptr(int lpBaseAddress) => Ptr(new IntPtr(lpBaseAddress));
         public IntPtr Ptr(long lpBaseAddress) => Ptr(new IntPtr(lpBaseAddress));
         public unsafe IntPtr Ptr(void* lpBaseAddress) => Ptr(new IntPtr(lpBaseAddress));
-        public IntPtr Ptr(IntPtr lpBaseAddress) => Read(lpBaseAddress, TargetPointerLength, (bytes) => new IntPtr(BitConverter.ToInt32(bytes, 0)));
+        public IntPtr Ptr(IntPtr lpBaseAddress)
+        {
+            return TargetPointerLength switch
+            {
+                8 => Read(lpBaseAddress, TargetPointerLength, (bytes) => new IntPtr(BitConverter.ToInt64(bytes, 0))),
+                4 => Read(lpBaseAddress, TargetPointerLength, (bytes) => new IntPtr(BitConverter.ToInt32(bytes, 0))),
+                _ => throw new NotSupportedException(),
+            };
+        }
 
         public byte B(int lpBaseAddress) => Read(new IntPtr(lpBaseAddress), sizeof(byte), (bytes) => bytes[0]);
         public byte B(long lpBaseAddress) => Read(new IntPtr(lpBaseAddress), sizeof(byte), (bytes) => bytes[0]);

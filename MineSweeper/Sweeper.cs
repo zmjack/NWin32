@@ -7,12 +7,12 @@ using static NWin32.NativeConstants;
 using static NWin32.NativeMacros;
 using static NWin32.NativeMethods;
 
-namespace WinMineSweeper
+namespace MineSweeper
 {
     public class Sweeper
     {
         private readonly AutoIntPtr<uint> Pid = new AutoIntPtr<uint>();
-        private IntPtr HWnd;
+        private readonly IntPtr HWnd;
 
         private const int WBASE = 0x01000000;
         private readonly int AddrRemaining = WBASE + 0x5194;
@@ -48,7 +48,7 @@ namespace WinMineSweeper
         public void Print()
         {
             Console.SetCursorPosition(0, 0);
-            Console.WriteLine($"Remaining: {Remaining.ToString("000")}\tPassed time: {Time.ToString("000")}");
+            Console.WriteLine($"Remaining: {Remaining:000}\tPassed time: {Time:000}");
             for (int i = 0; i <= Height + 1; i++)
             {
                 for (int j = 0; j <= Width + 1; j++)

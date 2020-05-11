@@ -36,15 +36,13 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NMarshal, Version=0.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NMarshal.0.0.2\lib\net35\NMarshal.dll</HintPath>
-    </Reference>
-    <Reference Include="NStandard, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\NStandard.0.0.1\lib\netstandard2.0\NStandard.dll</HintPath>
+    <Reference Include="NStandard, Version=0.3.22.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NStandard.0.3.22\lib\net46\NStandard.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
