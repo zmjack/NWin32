@@ -1,4 +1,5 @@
 ﻿using Native;
+using NStandard;
 using NWin32;
 using System;
 using System.Diagnostics;
@@ -22,6 +23,7 @@ namespace MineSweeper
         private readonly int AddrMine = WBASE + 0x5340;
         private int Remaining, Width, Height, Time;
         private byte[] Mines = new byte[832];
+        private bool Valid;
 
         public Sweeper()
         {
@@ -41,7 +43,13 @@ namespace MineSweeper
                 Width = memory.I4(AddrWidth);
                 Height = memory.I4(AddrHeight);
                 Time = memory.I4(AddrTime);
-                Mines = memory.Buffer(AddrMine, Mines.Length);
+
+                if ((Width * Height).For(n => 0 < n && n <= Mines.Length))
+                {
+                    Mines = memory.Buffer(AddrMine, Mines.Length);
+                    Valid = true;
+                }
+                else Valid = false;
             }
         }
 
@@ -70,7 +78,7 @@ namespace MineSweeper
         {
             switch (n)
             {
-                case 13: return '!';        // ? empty
+                case 13: return '+';        // ? empty
                 case 14: return 'e';        // Flag empty
                 case 15: return '_';        // Cell
                 case 16: return (char)n;    // Wall
@@ -86,7 +94,7 @@ namespace MineSweeper
                 case 204: return 'B';       // Boom
                 case 143: return '*';       // Mine(Invisible)
                 case 142: return '.';       // Flag mine
-                case 141: return '?';       // ? mine
+                case 141: return '!';       // ? mine
                 case 138: return '@';       // Mine(Visible)
                 default: return '#';
             }
@@ -116,10 +124,13 @@ namespace MineSweeper
             while (true)
             {
                 ReadMemory();
-                Print();
-                Sleep(200);
-                Sweep();
-                Sleep(200);
+                if (Valid)
+                {
+                    Print();
+                    Sleep(50);
+                    //Sweep();
+                    Sleep(50);
+                }
             }
         }
 
