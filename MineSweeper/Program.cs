@@ -12,7 +12,7 @@ namespace MineSweeper
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
-            var sweeper = new Sweeper();
+            var sweeper = new Sweeper(autoSweep: true);
             sweeper.Run();
         }
     }

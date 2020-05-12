@@ -24,9 +24,11 @@ namespace MineSweeper
         private int Remaining, Width, Height, Time;
         private byte[] Mines = new byte[832];
         private bool Valid;
+        private bool AutoSweep;
 
-        public Sweeper()
+        public Sweeper(bool autoSweep)
         {
+            AutoSweep = autoSweep;
             while ((HWnd = FindWindowW("Minesweeper", "Minesweeper")) == IntPtr.Zero)
             {
                 Process.Start("winmine.exe");
@@ -128,7 +130,7 @@ namespace MineSweeper
                 {
                     Print();
                     Sleep(50);
-                    //Sweep();
+                    if (AutoSweep) Sweep();
                     Sleep(50);
                 }
             }
