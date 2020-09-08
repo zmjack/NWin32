@@ -1,6 +1,8 @@
 ﻿using Native;
+using NStandard;
 using System;
 using System.Linq;
+using System.Text;
 using static NWin32.NativeConstants;
 using static NWin32.NativeMethods;
 
@@ -146,17 +148,28 @@ namespace NWin32
         public unsafe double D(void* lpBaseAddress) => Read(new IntPtr(lpBaseAddress), sizeof(double), (bytes) => BitConverter.ToDouble(bytes, 0));
         public double D(IntPtr lpBaseAddress) => Read(lpBaseAddress, sizeof(double), (bytes) => BitConverter.ToDouble(bytes, 0));
 
-        public byte[] Buffer(int lpBaseAddress, int readLength) => Read(new IntPtr(lpBaseAddress), readLength, BufferConvert);
-        public byte[] Buffer(long lpBaseAddress, int readLength) => Read(new IntPtr(lpBaseAddress), readLength, BufferConvert);
-        public byte[] Buffer(string lpBaseAddress, int readLength) => Read(GetTargetPtr(lpBaseAddress), readLength, BufferConvert);
-        public unsafe byte[] Buffer(void* lpBaseAddress, int readLength) => Read(new IntPtr(lpBaseAddress), readLength, BufferConvert);
-        public byte[] Buffer(IntPtr lpBaseAddress, int readLength) => Read(lpBaseAddress, readLength, BufferConvert);
+        public string String(int lpBaseAddress, int length, Encoding encoding) => Read(new IntPtr(lpBaseAddress), length, (bytes) => BufferConvertToString(bytes, encoding));
+        public string String(long lpBaseAddress, int length, Encoding encoding) => Read(new IntPtr(lpBaseAddress), length, (bytes) => BufferConvertToString(bytes, encoding));
+        public string String(string lpBaseAddress, int length, Encoding encoding) => Read(GetTargetPtr(lpBaseAddress), length, (bytes) => BufferConvertToString(bytes, encoding));
+        public unsafe string String(void* lpBaseAddress, int length, Encoding encoding) => Read(new IntPtr(lpBaseAddress), length, (bytes) => BufferConvertToString(bytes, encoding));
+        public string String(IntPtr lpBaseAddress, int length, Encoding encoding) => Read(lpBaseAddress, length, (bytes) => BufferConvertToString(bytes, encoding));
+
+        public byte[] Buffer(int lpBaseAddress, int length) => Read(new IntPtr(lpBaseAddress), length, BufferConvert);
+        public byte[] Buffer(long lpBaseAddress, int length) => Read(new IntPtr(lpBaseAddress), length, BufferConvert);
+        public byte[] Buffer(string lpBaseAddress, int length) => Read(GetTargetPtr(lpBaseAddress), length, BufferConvert);
+        public unsafe byte[] Buffer(void* lpBaseAddress, int length) => Read(new IntPtr(lpBaseAddress), length, BufferConvert);
+        public byte[] Buffer(IntPtr lpBaseAddress, int length) => Read(lpBaseAddress, length, BufferConvert);
 
         private byte[] BufferConvert(byte[] bytes)
         {
             var ret = new byte[bytes.Length];
             Array.Copy(bytes, ret, ret.Length);
             return ret;
+        }
+
+        private string BufferConvertToString(byte[] bytes, Encoding encoding)
+        {
+            return encoding.GetString(bytes);
         }
 
     }
