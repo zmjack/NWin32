@@ -10,7 +10,7 @@
     <Description>P/Invoke for Win32 API, provides NativeMethods, NativeConstants and NativeTypes.</Description>
     <Authors>zmjack</Authors>
     <Company>dawnx.net</Company>
-    <Version>1.0.6</Version>
+    <Version>1.0.7</Version>
     <PackageTags>P/Invoke Win32 API</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8</LangVersion>
