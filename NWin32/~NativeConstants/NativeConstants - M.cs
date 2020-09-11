@@ -3761,12 +3761,10 @@
         public const string MAKEINTRESOURCE = NativeConstants.MAKEINTRESOURCEW;
 
         /// MAILSLOT_WAIT_FOREVER -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string MAILSLOT_WAIT_FOREVER = "((DWORD)-1)";
+        public const int MAILSLOT_WAIT_FOREVER = -1;
 
         /// MAILSLOT_NO_MESSAGE -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string MAILSLOT_NO_MESSAGE = "((DWORD)-1)";
+        public const int MAILSLOT_NO_MESSAGE = -1;
 
         /// MAC_CHARSET -> 77
         public const int MAC_CHARSET = 77;

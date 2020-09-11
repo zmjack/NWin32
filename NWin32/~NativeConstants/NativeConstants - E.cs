@@ -5188,8 +5188,7 @@
         public const int ENUM_S_FIRST = 262576;
 
         /// ENUM_REGISTRY_SETTINGS -> ((DWORD)-2)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string ENUM_REGISTRY_SETTINGS = "((DWORD)-2)";
+        public const int ENUM_REGISTRY_SETTINGS = -2;
 
         /// ENUM_E_LAST -> 0x800401BFL
         public const int ENUM_E_LAST = -2147221057;
@@ -5198,8 +5197,7 @@
         public const int ENUM_E_FIRST = -2147221072;
 
         /// ENUM_CURRENT_SETTINGS -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string ENUM_CURRENT_SETTINGS = "((DWORD)-1)";
+        public const int ENUM_CURRENT_SETTINGS = -1;
 
         /// ENUM_ALL_CALENDARS -> 0xffffffff
         public const int ENUM_ALL_CALENDARS = -1;

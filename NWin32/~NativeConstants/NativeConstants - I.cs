@@ -409,12 +409,10 @@
         public const int IN_CLASSA_HOST = 16777215;
 
         /// INVALID_SET_FILE_POINTER -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string INVALID_SET_FILE_POINTER = "((DWORD)-1)";
+        public const int INVALID_SET_FILE_POINTER = -1;
 
         /// INVALID_FILE_ATTRIBUTES -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string INVALID_FILE_ATTRIBUTES = "((DWORD)-1)";
+        public const int INVALID_FILE_ATTRIBUTES = -1;
 
         /// INT_MIN -> (-2147483647 - 1)
         public const int INT_MIN = (-2147483647 - 1);

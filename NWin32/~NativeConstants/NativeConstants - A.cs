@@ -84,8 +84,7 @@
         public const int ATTR_CONVERTED = 2;
 
         /// ATTACH_PARENT_PROCESS -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string ATTACH_PARENT_PROCESS = "((DWORD)-1)";
+        public const int ATTACH_PARENT_PROCESS = -1;
 
         /// ATF_TIMEOUTON -> 0x00000001
         public const int ATF_TIMEOUTON = 1;
@@ -128,8 +127,7 @@
         public const int ASPECTX = 40;
 
         /// ASFW_ANY -> ((DWORD)-1)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string ASFW_ANY = "((DWORD)-1)";
+        public const int ASFW_ANY = -1;
 
         /// ARW_UP -> 0x0004L
         public const int ARW_UP = 4;

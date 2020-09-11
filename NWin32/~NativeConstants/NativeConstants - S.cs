@@ -1739,7 +1739,7 @@ namespace NWin32
         public const int STM_GETICON = 369;
 
         /// STILL_ACTIVE -> STATUS_PENDING
-        public const string STILL_ACTIVE = NativeConstants.STATUS_PENDING;
+        public const int STILL_ACTIVE = NativeConstants.STATUS_PENDING;
 
         /// STG_TOEND -> 0xFFFFFFFFL
         public const int STG_TOEND = -1;
@@ -1829,16 +1829,13 @@ namespace NWin32
         public const int STGFMT_ANY = 4;
 
         /// STD_OUTPUT_HANDLE -> ((DWORD)-11)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string STD_OUTPUT_HANDLE = "((DWORD)-11)";
+        public const int STD_OUTPUT_HANDLE = -11;
 
         /// STD_INPUT_HANDLE -> ((DWORD)-10)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string STD_INPUT_HANDLE = "((DWORD)-10)";
+        public const int STD_INPUT_HANDLE = -10;
 
         /// STD_ERROR_HANDLE -> ((DWORD)-12)
-        /// Error generating expression: Value DWORD is not resolved
-        public const string STD_ERROR_HANDLE = "((DWORD)-12)";
+        public const int STD_ERROR_HANDLE = -12;
 
         /// STDOLE_MINORVERNUM -> 0x0
         public const int STDOLE_MINORVERNUM = 0;
@@ -4500,7 +4497,7 @@ namespace NWin32
         /// SERVICE_ENUMERATE_DEPENDENTS -> 0x0008
         public const int SERVICE_ENUMERATE_DEPENDENTS = 8;
 
-        /// SERVICE_DRIVER -> (SERVICE_KERNEL_DRIVER |                                         SERVICE_FILE_SYSTEM_DRIVER |                                         SERVICE_RECOGNIZER_DRIVER)
+        /// SERVICE_DRIVER -> (SERVICE_KERNEL_DRIVER | SERVICE_FILE_SYSTEM_DRIVER | SERVICE_RECOGNIZER_DRIVER)
         public const int SERVICE_DRIVER = (NativeConstants.SERVICE_KERNEL_DRIVER
                     | (NativeConstants.SERVICE_FILE_SYSTEM_DRIVER | NativeConstants.SERVICE_RECOGNIZER_DRIVER));
 
@@ -4999,7 +4996,7 @@ namespace NWin32
         /// SECTION_EXTEND_SIZE -> 0x0010
         public const int SECTION_EXTEND_SIZE = 16;
 
-        /// SECTION_ALL_ACCESS -> (STANDARD_RIGHTS_REQUIRED|SECTION_QUERY|                            SECTION_MAP_WRITE |                                  SECTION_MAP_READ |                                   SECTION_MAP_EXECUTE |                                SECTION_EXTEND_SIZE)
+        /// SECTION_ALL_ACCESS -> (STANDARD_RIGHTS_REQUIRED|SECTION_QUERY|SECTION_MAP_WRITE|SECTION_MAP_READ |SECTION_MAP_EXECUTE |SECTION_EXTEND_SIZE)
         public const int SECTION_ALL_ACCESS = (NativeConstants.STANDARD_RIGHTS_REQUIRED
                     | (NativeConstants.SECTION_QUERY
                     | (NativeConstants.SECTION_MAP_WRITE
@@ -5717,8 +5714,7 @@ namespace NWin32
         public const int SACL_SECURITY_INFORMATION = 8;
 
         /// STATUS_PENDING -> ((DWORD   )0x00000103L)
-        /// Error generating expression: Cast expressions are not supported in constants
-        public const string STATUS_PENDING = "((DWORD   )0x00000103L)";
+        public const int STATUS_PENDING = 0x00000103;
 
         /// SEC_E_INTERNAL_ERROR -> _HRESULT_TYPEDEF_(0x80090304L)
         /// Error generating expression: Error generating function call.  Operation not implemented
