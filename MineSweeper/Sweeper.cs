@@ -3,6 +3,7 @@ using NStandard;
 using NWin32;
 using System;
 using System.Diagnostics;
+using System.Text;
 using System.Threading;
 using static NWin32.NativeConstants;
 using static NWin32.NativeMacros;
@@ -24,11 +25,9 @@ namespace MineSweeper
         private int Remaining, Width, Height, Time;
         private byte[] Mines = new byte[832];
         private bool Valid;
-        private bool AutoSweep;
 
-        public Sweeper(bool autoSweep)
+        public Sweeper()
         {
-            AutoSweep = autoSweep;
             while ((HWnd = FindWindowW("Minesweeper", "Minesweeper")) == IntPtr.Zero)
             {
                 Process.Start("winmine.exe");
@@ -39,20 +38,19 @@ namespace MineSweeper
 
         public void ReadMemory()
         {
-            using (var memory = new MemoryAccessor(Pid.Value))
-            {
-                Remaining = memory.I4(AddrRemaining);
-                Width = memory.I4(AddrWidth);
-                Height = memory.I4(AddrHeight);
-                Time = memory.I4(AddrTime);
+            using var memory = new MemoryAccessor(Pid.Value);
 
-                if ((Width * Height).For(n => 0 < n && n <= Mines.Length))
-                {
-                    Mines = memory.Buffer(AddrMine, Mines.Length);
-                    Valid = true;
-                }
-                else Valid = false;
+            Remaining = memory.I4(AddrRemaining);
+            Width = memory.I4(AddrWidth);
+            Height = memory.I4(AddrHeight);
+            Time = memory.I4(AddrTime);
+
+            if ((Width * Height).For(n => 0 < n && n <= Mines.Length))
+            {
+                Mines = memory.Buffer(AddrMine, Mines.Length);
+                Valid = true;
             }
+            else Valid = false;
         }
 
         public void Print()
@@ -61,19 +59,21 @@ namespace MineSweeper
             Console.WriteLine($"Remaining: {Remaining:000}\tPassed time: {Time:000}");
             for (int i = 0; i <= Height + 1; i++)
             {
-                for (int j = 0; j <= Width + 1; j++)
-                    Console.Write($"{CellFormat(Mines[i * 0x20 + j])} ");
-                for (int j = Width + 2; j <= 30 + 1; j++)
-                    Console.Write($"  ");
-                Console.WriteLine();
+                var sb = new StringBuilder();
+                for (int j = 0; j <= Width + 1; j++) sb.Append($"{CellFormat(Mines[i * 0x20 + j])} ");
+                for (int j = Width + 2; j <= 30 + 1; j++) sb.Append($"  ");
+                Console.WriteLine(sb);
             }
 
             for (int i = Height + 2; i <= 16 + 1; i++)
             {
-                for (int j = 0; j <= 30 + 1; j++)
-                    Console.Write($"  ");
-                Console.WriteLine();
+                var sb = new StringBuilder();
+                for (int j = 0; j <= 30 + 1; j++) sb.Append($"  ");
+                Console.WriteLine(sb);
             }
+
+            Console.WriteLine();
+            Console.WriteLine("Press [Enter] to sweep...");
         }
 
         public char CellFormat(byte n)
@@ -129,8 +129,6 @@ namespace MineSweeper
                 if (Valid)
                 {
                     Print();
-                    Sleep(50);
-                    if (AutoSweep) Sweep();
                     Sleep(50);
                 }
             }

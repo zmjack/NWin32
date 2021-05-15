@@ -3,6 +3,7 @@ using NStandard;
 using NWin32;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using static NWin32.NativeMethods;
 
 namespace MineSweeper
@@ -12,8 +13,12 @@ namespace MineSweeper
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
-            var sweeper = new Sweeper(autoSweep: true);
-            sweeper.Run();
+            var sweeper = new Sweeper();
+            Task.Run(() => sweeper.Run());
+            while (true)
+            {
+                if (Console.ReadKey(true).Key == ConsoleKey.Enter) sweeper.Sweep();
+            }
         }
     }
 }

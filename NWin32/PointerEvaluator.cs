@@ -18,10 +18,9 @@ namespace NWin32
 #else
             var key = ("[", "]");
 #endif
-            BracketFunctions.Add(key, inExp => Expression.Call(Expression.Constant(this), ResolvePointerMethod, inExp));
+            BracketFunctions.Add(key, inExp => ResolvePointer(inExp));
         }
 
-        private readonly MethodInfo ResolvePointerMethod = typeof(PointerEvaluator).GetDeclaredMethod(nameof(ResolvePointer));
         private double ResolvePointer(double ptr)
         {
             var value = Memory.TargetPointerLength == 8 ? Memory.I8(new IntPtr((long)ptr))
