@@ -10,7 +10,7 @@
     <Description>P/Invoke for Win32 API, provides NativeMethods, NativeConstants and NativeTypes.</Description>
     <Authors>zmjack</Authors>
     <Company>nstandard.net</Company>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <PackageTags>P/Invoke Win32 API</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <LangVersion>8</LangVersion>
@@ -20,16 +20,6 @@
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="winmine.exe" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="winmine.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Native" Version="0.1.1" />
