@@ -1077,7 +1077,7 @@ namespace NWin32
         ///dwMessage: DWORD->unsigned int
         ///pData: PAPPBARDATA->_AppBarData*
         [DllImport("shell32.dll", EntryPoint = "SHAppBarMessage", CallingConvention = CallingConvention.StdCall)]
-        [return: MarshalAs(UnmanagedType.SysUInt)]
+        [return: MarshalAs(UnmanagedType.I4)]
         public static extern uint SHAppBarMessage(uint dwMessage, ref APPBARDATA pData);
 
 
