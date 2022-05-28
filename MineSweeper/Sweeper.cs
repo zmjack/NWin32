@@ -80,7 +80,7 @@ namespace MineSweeper
         {
             switch (n)
             {
-                case 13: return '+';        // ? empty
+                case 13: return '?';        // ? empty
                 case 14: return 'e';        // Flag empty
                 case 15: return '_';        // Cell
                 case 16: return (char)n;    // Wall
@@ -96,7 +96,7 @@ namespace MineSweeper
                 case 204: return 'B';       // Boom
                 case 143: return '*';       // Mine(Invisible)
                 case 142: return '.';       // Flag mine
-                case 141: return '!';       // ? mine
+                case 141: return '+';       // ? mine
                 case 138: return '@';       // Mine(Visible)
                 default: return '#';
             }

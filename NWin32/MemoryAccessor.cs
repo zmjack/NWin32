@@ -27,7 +27,7 @@ namespace NWin32
 
         public void Dispose() => CloseHandle(HProcess);
 
-        private IntPtr GetTargetPtr(string lpBaseAddress) => new IntPtr((long)PointerEvaluator.Compile(lpBaseAddress)());
+        private IntPtr GetTargetPtr(string lpBaseAddress) => new IntPtr((long)PointerEvaluator.Eval(lpBaseAddress));
 
         public TRet Read<TRet>(int lpBaseAddress, int readLength, Func<byte[], TRet> convert) => Read(new IntPtr(lpBaseAddress), readLength, convert);
         public TRet Read<TRet>(long lpBaseAddress, int readLength, Func<byte[], TRet> convert) => Read(new IntPtr(lpBaseAddress), readLength, convert);
