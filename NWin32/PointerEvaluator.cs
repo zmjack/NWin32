@@ -18,7 +18,8 @@ namespace NWin32
 #else
             var key = ("[", "]");
 #endif
-            BracketFunctions.Add(key, inExp => ResolvePointer(inExp));
+            AddBracketFunction(key, value => ResolvePointer(value));
+            Initialize();
         }
 
         private double ResolvePointer(double ptr)

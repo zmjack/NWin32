@@ -14,15 +14,16 @@ namespace NWin32
         public IntPtr HProcess { get; private set; }
         public PointerEvaluator PointerEvaluator;
 
-        public MemoryAccessor(uint pid, int targetPointerLength = 4, uint dwDesiredAccess = PROCESS_ALL_ACCESS | PROCESS_VM_READ | PROCESS_VM_WRITE)
+        public MemoryAccessor(uint pid, uint dwDesiredAccess = PROCESS_ALL_ACCESS | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_QUERY_INFORMATION)
         {
-            if (new[] { 4, 8 }.Contains(targetPointerLength))
+            HProcess = OpenProcess(dwDesiredAccess, false, pid);
+
+            if (IsWow64Process(HProcess, out var wow64))
             {
-                HProcess = OpenProcess(dwDesiredAccess, false, pid);
-                TargetPointerLength = targetPointerLength;
+                TargetPointerLength = wow64 == 0 ? 8 : 4;
                 PointerEvaluator = new PointerEvaluator(this);
             }
-            else throw new ArgumentException("The `TargetPointerLength` must be 4(x86) or 8(x64).");
+            else throw new InvalidOperationException("PROCESS_QUERY_INFORMATION or PROCESS_QUERY_LIMITED_INFORMATION is required.");
         }
 
         public void Dispose() => CloseHandle(HProcess);
