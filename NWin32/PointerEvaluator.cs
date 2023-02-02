@@ -18,16 +18,8 @@ namespace NWin32
 #else
             var key = ("[", "]");
 #endif
-            AddBracketFunction(key, value => ResolvePointer(value));
+            AddBracketFunction(key, value => Memory.Ptr(new IntPtr((long)value)).ToInt64());
             Initialize();
-        }
-
-        private double ResolvePointer(double ptr)
-        {
-            var value = Memory.TargetPointerLength == 8 ? Memory.I8(new IntPtr((long)ptr))
-                      : Memory.TargetPointerLength == 4 ? Memory.I4(new IntPtr((int)ptr))
-                      : 0d;
-            return value;
         }
 
     }
