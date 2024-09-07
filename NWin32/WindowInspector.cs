@@ -15,15 +15,29 @@ namespace NWin32
         public string Caption => GetCaption();
         public string ClassName => GetClassName();
         public tagRECT Rectangle => GetRectangle();
-        public int Width => Rectangle.For(x => x.right - x.left);
-        public int Height => Rectangle.For(x => x.bottom - x.top);
+        public int Width
+        {
+            get
+            {
+                var rect = Rectangle;
+                return rect.right - rect.left;
+            }
+        }
+        public int Height
+        {
+            get
+            {
+                var rect = Rectangle;
+                return rect.bottom - rect.top;
+            }
+        }
         public uint ProcessId => GetProcessId();
-        public WindowInspector FirstWindow => NativeMethods.GetWindow(Handle, 0).For(WrapWindowInspector);
-        public WindowInspector LastWindow => NativeMethods.GetWindow(Handle, 1).For(WrapWindowInspector);
-        public WindowInspector NextWindow => NativeMethods.GetWindow(Handle, 2).For(WrapWindowInspector);
-        public WindowInspector PreviousWindow => NativeMethods.GetWindow(Handle, 3).For(WrapWindowInspector);
-        public WindowInspector OwnerWindow => NativeMethods.GetWindow(Handle, 4).For(WrapWindowInspector);
-        public WindowInspector FirstChildWindow => NativeMethods.GetWindow(Handle, 5).For(WrapWindowInspector);
+        public WindowInspector FirstWindow => WrapWindowInspector(NativeMethods.GetWindow(Handle, 0));
+        public WindowInspector LastWindow => WrapWindowInspector(NativeMethods.GetWindow(Handle, 1));
+        public WindowInspector NextWindow => WrapWindowInspector(NativeMethods.GetWindow(Handle, 2));
+        public WindowInspector PreviousWindow => WrapWindowInspector(NativeMethods.GetWindow(Handle, 3));
+        public WindowInspector OwnerWindow => WrapWindowInspector(NativeMethods.GetWindow(Handle, 4));
+        public WindowInspector FirstChildWindow => WrapWindowInspector(NativeMethods.GetWindow(Handle, 5));
         public bool IsIconic => NativeMethods.IsIconic(Handle);
         public bool IsForeground => NativeMethods.GetForegroundWindow() == Handle;
 

@@ -13,7 +13,7 @@ namespace NWin32
         public PointerEvaluator(MemoryAccessor memoryAccessor)
         {
             Memory = memoryAccessor;
-            AddBracketFunction(new("[", "]"), value => Memory.Ptr(new IntPtr((long)value)).ToInt64());
+            DefineBracket(new("[", "]"), value => Memory.Ptr(new IntPtr((long)value)).ToInt64());
             Initialize();
         }
 
